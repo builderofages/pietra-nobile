@@ -2,6 +2,17 @@
 // PIETRA NOBILE — admin.js (Staff Portal)
 // Auth · Inquiries · Orders · KPIs
 // ==========================================================
+// Plug-and-play guard: no backend keys → showcase notice, no crash.
+if (!window.PN_CONFIG.SUPABASE_URL || !window.PN_CONFIG.SUPABASE_ANON_KEY) {
+  document.addEventListener('DOMContentLoaded', () => {
+    const err = document.getElementById('loginErr');
+    if (err) err.textContent = 'Showcase mode — backend not connected. Add your keys in js/config.js to activate.';
+    const form = document.getElementById('loginForm');
+    if (form) form.addEventListener('submit', e => e.preventDefault(), true);
+  });
+  throw new Error('PN: showcase mode (no backend configured)');
+}
+
 const sb = window.supabase.createClient(window.PN_CONFIG.SUPABASE_URL, window.PN_CONFIG.SUPABASE_ANON_KEY);
 
 const $ = id => document.getElementById(id);
