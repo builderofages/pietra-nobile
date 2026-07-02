@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pietra Nobile — Collection</title>
+<meta name="description" content="Explore hand-carved marble works by Pietra Nobile — statues, estate fountains, fireplace mantels and architectural stonework.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<nav id="nav" class="scrolled">
+  <a class="logo" href="index.html">Pietra <span>Nobile</span></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#collections">Collections</a></li>
+    <li><a href="index.html#atelier">The Atelier</a></li>
+    <li><a href="index.html#commission">Commissions</a></li>
+    <li><a href="index.html#consult" class="nav-cta">Private Consultation</a></li>
+  </ul>
+</nav>
+
+<header class="col-hero">
+  <img id="colHeroImg" src="" alt="">
+  <div class="col-hero-inner">
+    <p class="num" id="colNum">—</p>
+    <h1 id="colTitle">Collection</h1>
+    <p id="colIntro"></p>
+  </div>
+</header>
+
+<section>
+  <p class="eyebrow reveal">Selected Works</p>
+  <h2 class="h2 reveal d1" id="colHeading" style="margin-bottom:56px">The <em>portfolio.</em></h2>
+  <div class="col-gallery" id="colGallery"></div>
+
+  <div class="col-nextrow">
+    <a class="btn" href="index.html#consult">Commission a Piece</a>
+    <a class="btn" id="colOther" href="index.html#collections">All Collections</a>
+  </div>
+</section>
+
+<section class="commission col-cta">
+  <p class="eyebrow reveal">Private Commission</p>
+  <h2 class="h2 reveal d1">One block.<br>One <em>heirloom.</em></h2>
+  <p class="lede reveal d2" style="text-align:center">Every piece is carved to order. Tell us about your space and a design consultant will guide you from stone selection to white-glove installation.</p>
+  <div style="margin-top:44px"><a class="btn reveal d3" href="index.html#consult">Begin Your Commission</a></div>
+</section>
+
+<footer>
+  <div>
+    <a class="logo" href="index.html">Pietra <span>Nobile</span></a>
+    <p style="margin-top:14px;max-width:300px;line-height:1.8">Hand-carved marble statues, fountains, fireplaces &amp; architectural stonework. Nationwide white-glove delivery.</p>
+  </div>
+  <div>
+    <p style="letter-spacing:.24em;text-transform:uppercase;font-size:10px;color:var(--gold);margin-bottom:14px">Collections</p>
+    <p style="line-height:2.2"><a href="collection.html?c=statues">Statues &amp; Sculpture</a><br><a href="collection.html?c=fountains">Estate Fountains</a><br><a href="collection.html?c=fireplaces">Fireplaces &amp; Mantels</a><br><a href="collection.html?c=architectural">Architectural</a></p>
+  </div>
+  <div>
+    <p style="letter-spacing:.24em;text-transform:uppercase;font-size:10px;color:var(--gold);margin-bottom:14px">Contact</p>
+    <p style="line-height:2.2">hello@pietranobile.com<br>By appointment only</p>
+    <p style="margin-top:24px;opacity:.5">© MMXXVI Pietra Nobile. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script>
+// ---------- collection data ----------
+var CDN = "https://d8j0ntlcm91z4.cloudfront.net/user_342M7OMJEmtQi5ZXBKPVqJZUjCn/";
+var IMG = {
+  statueHero:  CDN + "hf_20260702_033408_a1bca482-3204-4416-a602-86b29e7c3eee.png",
+  acanthus:    CDN + "hf_20260702_033426_3a6b10fc-820b-4be7-a37d-7e4fdac815cb.png",
+  bust:        CDN + "hf_20260702_033409_2ecc589d-f67a-42da-bf23-715377577d5f.png",
+  lion:        CDN + "hf_20260702_033430_c9f8cefa-5f1d-4cba-882f-7db17abcbdf0.png",
+  fountain3:   CDN + "hf_20260702_033410_7dc006bc-1f1d-444c-a7de-768643b950d2.png",
+  fireLibrary: CDN + "hf_20260702_033412_9723b6f1-8a51-4fd4-89ea-3471c6597db3.png",
+  colonnade:   CDN + "hf_20260702_033413_93996a7b-f038-440d-9f07-0955818192d1.png",
+  // newly generated
+  muse:        "https://d8j0ntlcm91z4.cloudfront.net/user_342M7OMJEmtQi5ZXBKPVqJZUjCn/hf_20260702_133621_3bb6f14c-5f20-4c84-b42a-e0cc74c3c46a.png",
+  fountainWall:"https://d8j0ntlcm91z4.cloudfront.net/user_342M7OMJEmtQi5ZXBKPVqJZUjCn/hf_20260702_133624_36e1b729-6757-4a07-85f7-d99792ac7391.png",
+  fountainCourt:"https://d8j0ntlcm91z4.cloudfront.net/user_342M7OMJEmtQi5ZXBKPVqJZUjCn/hf_20260702_133626_f3f70631-be08-4213-ac3e-5497c485a68a.png",
+  fireNero:    "https://d8j0ntlcm91z4.cloudfront.net/user_342M7OMJEmtQi5ZXBKPVqJZUjCn/hf_20260702_133629_910c106b-f9f0-4c13-b88a-4c98863bd24c.png",
+  fireStatuario:"https://d8j0ntlcm91z4.cloudfront.net/user_342M7OMJEmtQi5ZXBKPVqJZUjCn/hf_20260702_133639_5104c7e1-023b-44e9-aa27-6b973817af11.png",
+  balustrade:  "https://d8j0ntlcm91z4.cloudfront.net/user_342M7OMJEmtQi5ZXBKPVqJZUjCn/hf_20260702_133642_74880577-4528-4451-9136-85bc5a776677.png",
+  capital:     "https://d8j0ntlcm91z4.cloudfront.net/user_342M7OMJEmtQi5ZXBKPVqJZUjCn/hf_20260702_133645_20ed81e5-b98a-49c9-ada2-01ad4a7060d0.png"
+};
+
+var DATA = {
+  statues: {
+    num: "Collection I",
+    title: "Statues &amp; <em>Sculpture</em>",
+    hero: IMG.statueHero,
+    intro: "Classical and contemporary figures carved from the finest white marble — busts, muses, guardians and monumental works, each begun as a single block and finished by hand.",
+    pieces: [
+      { img: IMG.muse,     title: "The Draped Muse",   meta: "Statuario · Private Commission" },
+      { img: IMG.bust,     title: "The Portrait Bust", meta: "Calacatta · Private Collection, NY" },
+      { img: IMG.lion,     title: "The Guardian Lion", meta: "Nero Marquina · Palm Beach, FL" },
+      { img: IMG.acanthus, title: "Acanthus Study",    meta: "Statuario · Carving Detail" }
+    ]
+  },
+  fountains: {
+    num: "Collection II",
+    title: "Estate <em>Fountains</em>",
+    hero: IMG.fountain3,
+    intro: "Garden, courtyard and wall fountains carved from weather-tested marble — water and stone in conversation, sized from an intimate basin to a monumental three-tier centrepiece.",
+    pieces: [
+      { img: IMG.fountain3,     title: "The Tiered Fountain",      meta: "Bianco Carrara · Montecito, CA" },
+      { img: IMG.fountainWall,  title: "The Lion-Mask Wall Fountain", meta: "Bianco Carrara · Garden Wall" },
+      { img: IMG.fountainCourt, title: "The Courtyard Basin",      meta: "Carrara · Estate Courtyard" }
+    ]
+  },
+  fireplaces: {
+    num: "Collection III",
+    title: "Fireplaces &amp; <em>Mantels</em>",
+    hero: IMG.fireLibrary,
+    intro: "Hand-carved fire surrounds and mantels — from ornate Calacatta gold in a paneled library to a spare Nero Marquina statement in a modern room. The stone the room gathers around.",
+    pieces: [
+      { img: IMG.fireLibrary,   title: "The Library Mantel", meta: "Calacatta · Greenwich, CT" },
+      { img: IMG.fireNero,      title: "The Modern Surround", meta: "Nero Marquina · Aspen, CO" },
+      { img: IMG.fireStatuario, title: "The Carved Frieze",  meta: "Statuario · Mantel Detail" }
+    ]
+  },
+  architectural: {
+    num: "Collection IV",
+    title: "Architectural <em>Stonework</em>",
+    hero: IMG.colonnade,
+    intro: "Columns, capitals, balustrades and cladding — structural and ornamental marble carved to order for entrances, terraces and interiors that are meant to last for centuries.",
+    pieces: [
+      { img: IMG.colonnade,  title: "The Corinthian Colonnade", meta: "Carrara · Estate Entrance" },
+      { img: IMG.balustrade, title: "The Terrace Balustrade",   meta: "Carrara · Garden Terrace" },
+      { img: IMG.capital,    title: "The Carved Capital",       meta: "Carrara · Column Detail" }
+    ]
+  }
+};
+
+// ---------- render ----------
+(function () {
+  var key = (new URLSearchParams(location.search).get("c") || "statues").toLowerCase();
+  var d = DATA[key] || DATA.statues;
+  document.title = "Pietra Nobile — " + d.title.replace(/<[^>]+>/g, "");
+  document.getElementById("colNum").textContent = d.num;
+  document.getElementById("colTitle").innerHTML = d.title;
+  document.getElementById("colIntro").textContent = d.intro;
+  document.getElementById("colHeroImg").src = d.hero;
+  document.getElementById("colHeroImg").alt = d.title.replace(/<[^>]+>/g, "");
+
+  var g = document.getElementById("colGallery");
+  d.pieces.forEach(function (p, i) {
+    var a = document.createElement("div");
+    a.className = "col-piece reveal" + (i % 2 ? " d1" : "");
+    a.innerHTML =
+      '<img src="' + p.img + '" alt="' + p.title + '">' +
+      '<div class="cap"><h3>' + p.title + '</h3><span>' + p.meta + '</span></div>';
+    g.appendChild(a);
+  });
+
+  // link to the "next" collection
+  var order = ["statues", "fountains", "fireplaces", "architectural"];
+  var next = order[(order.indexOf(key) + 1) % order.length];
+  var other = document.getElementById("colOther");
+  other.href = "collection.html?c=" + next;
+  other.textContent = "Next Collection";
+})();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
