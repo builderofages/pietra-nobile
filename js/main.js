@@ -12,6 +12,22 @@ window.addEventListener('load', () => {
 const nav = document.getElementById('nav');
 addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
 
+// ---------- mobile menu ----------
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+if (navToggle && navLinks) {
+  const closeMenu = () => {
+    document.body.classList.remove('menu-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  };
+  navToggle.addEventListener('click', () => {
+    const open = document.body.classList.toggle('menu-open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+}
+
 // ---------- scroll reveals ----------
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -38,7 +54,8 @@ mountVideo('fireMedia', window.PN_CONFIG.FIRE_VIDEO);
 // ---------- consultation form ----------
 // Showcase mode: no backend keys → form confirms without saving.
 // Live mode: keys present in js/config.js → saves to database.
-document.getElementById('consultForm').addEventListener('submit', async function (e) {
+const consultForm = document.getElementById('consultForm');
+if (consultForm) consultForm.addEventListener('submit', async function (e) {
   e.preventDefault();
   const f = this;
   const status = document.getElementById('formStatus');
