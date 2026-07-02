@@ -1,0 +1,64 @@
+/* ==========================================================
+   PIETRA NOBILE — admin.css (Staff Portal)
+   ========================================================== */
+:root{
+  --ink:#0c0b09; --ink-2:#14120f; --ivory:#ece7dd; --ivory-dim:#b9b2a4;
+  --gold:#b49a63; --serif:'Cormorant Garamond',serif; --sans:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--ivory);font-family:var(--sans);font-weight:300;min-height:100vh}
+.hidden{display:none!important}
+
+/* ---------- login ---------- */
+.center-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.login-card{width:100%;max-width:380px;background:var(--ink-2);border:1px solid rgba(180,154,99,.2);padding:48px 40px}
+.brand{font-family:var(--serif);font-weight:400;letter-spacing:.28em;text-transform:uppercase;font-size:22px;text-align:center}
+.brand span{color:var(--gold)}
+.brand em{font-style:italic;color:var(--ivory-dim);font-size:14px;letter-spacing:.1em;text-transform:none}
+.sub{text-align:center;color:var(--ivory-dim);font-size:11px;letter-spacing:.3em;text-transform:uppercase;margin:10px 0 36px}
+
+/* ---------- fields / buttons ---------- */
+.field{margin-bottom:22px}
+.field label{display:block;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory-dim);margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(236,231,221,.22);color:var(--ivory);font-family:var(--sans);font-size:14px;padding:9px 0;outline:none;border-radius:0}
+.field input:focus,.field textarea:focus{border-color:var(--gold)}
+.btn{background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;padding:13px 28px;cursor:pointer;transition:all .4s;width:auto}
+.btn:hover{background:var(--gold);color:var(--ink)}
+.btn.ghost{border-color:rgba(236,231,221,.25);color:var(--ivory-dim)}
+.btn.ghost:hover{background:transparent;border-color:var(--gold);color:var(--gold)}
+.err{color:#c96a5a;font-size:12px;min-height:16px;margin-bottom:12px}
+
+/* ---------- topbar ---------- */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:20px clamp(20px,4vw,48px);border-bottom:1px solid rgba(180,154,99,.15)}
+.brand.small{font-size:16px;text-align:left}
+.topbar-right{display:flex;gap:20px;align-items:center;color:var(--ivory-dim);font-size:12px}
+
+/* ---------- kpis ---------- */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:28px clamp(20px,4vw,48px) 0}
+@media(max-width:800px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--ink-2);border:1px solid rgba(180,154,99,.14);padding:22px}
+.kpi .n{font-family:var(--serif);font-size:34px;color:var(--gold)}
+.kpi .l{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ivory-dim);margin-top:4px}
+
+/* ---------- tabs ---------- */
+.tabs{display:flex;gap:8px;padding:28px clamp(20px,4vw,48px) 0}
+.tab{background:transparent;border:1px solid rgba(236,231,221,.18);color:var(--ivory-dim);font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:11px 26px;cursor:pointer}
+.tab.active{border-color:var(--gold);color:var(--gold)}
+
+/* ---------- tables ---------- */
+.tab-panel{padding:24px clamp(20px,4vw,48px) 60px}
+.panel-head{margin-bottom:18px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);text-align:left;padding:12px 14px;border-bottom:1px solid rgba(180,154,99,.25)}
+td{padding:14px;border-bottom:1px solid rgba(236,231,221,.08);color:var(--ivory);vertical-align:top;max-width:280px}
+td .dim{color:var(--ivory-dim);font-size:12px}
+tr:hover td{background:rgba(180,154,99,.04)}
+select.status{background:var(--ink-2);border:1px solid rgba(236,231,221,.2);color:var(--ivory);font-size:12px;padding:6px 8px}
+select.status option{background:var(--ink)}
+.badge{display:inline-block;padding:4px 10px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(180,154,99,.4);color:var(--gold)}
+
+/* ---------- modal ---------- */
+.modal{position:fixed;inset:0;background:rgba(12,11,9,.8);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:100;padding:24px}
+.modal-card{width:100%;max-width:460px;background:var(--ink-2);border:1px solid rgba(180,154,99,.25);padding:40px}
+.modal-card h2{font-family:var(--serif);font-weight:400;margin-bottom:28px;letter-spacing:.06em}
+.modal-actions{display:flex;gap:12px;justify-content:flex-end}
