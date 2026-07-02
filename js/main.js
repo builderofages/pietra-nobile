@@ -1,6 +1,6 @@
 // ==========================================================
 // PIETRA NOBILE — main.js
-// Preloader · Nav · Scroll reveals · Hero video · Inquiry form
+// Preloader · Nav · Reveals · Section videos · Inquiry form
 // ==========================================================
 
 // ---------- preloader ----------
@@ -20,19 +20,24 @@ const io = new IntersectionObserver(entries => {
 }, { threshold: .15 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// ---------- hero video ----------
-(function () {
-  const src = window.PN_CONFIG.HERO_VIDEO;
+// ---------- section videos (hero + full-bleed breaks) ----------
+function mountVideo(containerId, src) {
   if (!src) return;
-  const m = document.getElementById('heroMedia');
+  const m = document.getElementById(containerId);
+  if (!m) return;
   const v = document.createElement('video');
   v.src = src; v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
   v.setAttribute('playsinline', '');
   m.appendChild(v);
-  v.addEventListener('canplay', () => { m.querySelector('img').style.display = 'none'; });
-})();
+  v.addEventListener('canplay', () => { const img = m.querySelector('img'); if (img) img.style.display = 'none'; });
+}
+mountVideo('heroMedia', window.PN_CONFIG.HERO_VIDEO);
+mountVideo('fountainMedia', window.PN_CONFIG.FOUNTAIN_VIDEO);
+mountVideo('fireMedia', window.PN_CONFIG.FIRE_VIDEO);
 
-// ---------- consultation form → Supabase ----------
+// ---------- consultation form ----------
+// Showcase mode: no backend keys → form confirms without saving.
+// Live mode: keys present in js/config.js → saves to database.
 document.getElementById('consultForm').addEventListener('submit', async function (e) {
   e.preventDefault();
   const f = this;
@@ -40,6 +45,16 @@ document.getElementById('consultForm').addEventListener('submit', async function
   const btn = f.querySelector('button[type=submit]');
   btn.disabled = true;
   status.textContent = 'Sending…';
+
+  const cfg = window.PN_CONFIG;
+  if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
+    await new Promise(r => setTimeout(r, 700));
+    f.reset();
+    status.textContent = 'Thank you. A design consultant will contact you within one business day.';
+    btn.disabled = false;
+    return;
+  }
+
   const payload = {
     name: f.name.value.trim(),
     email: f.email.value.trim(),
@@ -49,12 +64,12 @@ document.getElementById('consultForm').addEventListener('submit', async function
     message: f.message.value.trim() || null
   };
   try {
-    const r = await fetch(window.PN_CONFIG.SUPABASE_URL + '/rest/v1/pn_inquiries', {
+    const r = await fetch(cfg.SUPABASE_URL + '/rest/v1/pn_inquiries', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'apikey': window.PN_CONFIG.SUPABASE_ANON_KEY,
-        'Authorization': 'Bearer ' + window.PN_CONFIG.SUPABASE_ANON_KEY,
+        'apikey': cfg.SUPABASE_ANON_KEY,
+        'Authorization': 'Bearer ' + cfg.SUPABASE_ANON_KEY,
         'Prefer': 'return=minimal'
       },
       body: JSON.stringify(payload)
@@ -63,9 +78,7 @@ document.getElementById('consultForm').addEventListener('submit', async function
     f.reset();
     status.textContent = 'Thank you. A design consultant will contact you within one business day.';
   } catch (err) {
-    status.textContent = 'Something went wrong — please email office@udroofing.com directly.';
-    btn.disabled = false;
-    return;
+    status.textContent = 'Something went wrong — please try again shortly.';
   }
   btn.disabled = false;
 });

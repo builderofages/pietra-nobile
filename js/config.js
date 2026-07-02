@@ -1,9 +1,20 @@
 // ==========================================================
 // PIETRA NOBILE — config.js
 // Central configuration. Edit here only.
+//
+// BACKEND (plug-and-play):
+//   The site runs in showcase mode until you add backend keys.
+//   To go live: create a Supabase project (any account),
+//   run the schema in /docs/schema.sql, then paste the
+//   Project URL and anon key below. That's it.
 // ==========================================================
 window.PN_CONFIG = {
-  SUPABASE_URL: "https://akbtbwahwmbipeorzjar.supabase.co",
-  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrYnRid2Fod21iaXBlb3J6amFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwMDAyNDMsImV4cCI6MjA5NzU3NjI0M30.U2miHo-i6ZZIziVltHOnP69OfJ8R1bT1c4W19GS4MFM",
-  HERO_VIDEO: "https://d8j0ntlcm91z4.cloudfront.net/user_342M7OMJEmtQi5ZXBKPVqJZUjCn/hf_20260702_033523_e7375190-6ac1-4f72-8a10-991c65721bea.mp4"
+  // Leave empty for showcase mode (form shows success, saves nothing)
+  SUPABASE_URL: "",
+  SUPABASE_ANON_KEY: "",
+
+  // Cinematic section videos
+  HERO_VIDEO: "https://d8j0ntlcm91z4.cloudfront.net/user_342M7OMJEmtQi5ZXBKPVqJZUjCn/hf_20260702_033523_e7375190-6ac1-4f72-8a10-991c65721bea.mp4",
+  FOUNTAIN_VIDEO: "https://d8j0ntlcm91z4.cloudfront.net/user_342M7OMJEmtQi5ZXBKPVqJZUjCn/hf_20260702_040949_9d2b843f-4c70-48ac-a508-03bd1dc4a280.mp4",
+  FIRE_VIDEO: "https://d8j0ntlcm91z4.cloudfront.net/user_342M7OMJEmtQi5ZXBKPVqJZUjCn/hf_20260702_040951_edac3399-ac09-427d-bc0d-41a995f51e59.mp4"
 };
